@@ -3,169 +3,1086 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anand Achanta</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Venkata Anand Achanta | Data Engineer & Full-Stack Developer</title>
+    <style>
+        /*
+           DESIGN SYSTEM: iOS 18 TRANSLATION
+           CANDIDATE: Venkata Anand Achanta
+        */
 
+        :root {
+            /* Color Palette */
+            --bg-base: #000000;
+            --bg-elevated: rgba(255, 255, 255, 0.05);
+            --bg-frosted: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.10);
+            --border-glow: rgba(255, 255, 255, 0.18);
+            --accent-primary: #0A84FF;
+            --accent-soft: rgba(10, 132, 255, 0.15);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.60);
+            --text-tertiary: rgba(255, 255, 255, 0.35);
+            --success: #30D158;
+            --warning: #FF9F0A;
+
+            /* Typography Scale */
+            --text-display: clamp(3rem, 8vw, 6rem);
+            --text-hero-sub: clamp(1.1rem, 2.5vw, 1.5rem);
+            --text-section: clamp(1.5rem, 3vw, 2rem);
+            --text-card-title: 1.125rem;
+            --text-body: 0.9375rem;
+            --text-caption: 0.75rem;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+
+            /* Motion */
+            --ease-ios: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
+            --dur-fast: 150ms;
+            --dur-base: 300ms;
+            --dur-slow: 600ms;
+            --dur-ambient: 12s;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Components: Glassmorphism --- */
+        .glass-material {
+            backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+            -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 0 0 0.5px rgba(255, 255, 255, 0.08) inset,
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+
+        /* --- Navigation --- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            transition: all var(--dur-base) var(--ease-ios);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav__logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav__link {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--dur-fast);
+            padding: 4px 0;
+        }
+
+        .nav__link:hover, .nav__link.active {
+            color: var(--text-primary);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-primary);
+            transform: scaleX(0);
+            transition: transform var(--dur-base) var(--ease-ios);
+            transform-origin: right;
+        }
+
+        .nav__link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl) 24px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .hero__ambient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+        }
+
+        .orb--blue {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(10,132,255,0.8) 0%, rgba(10,132,255,0) 70%);
+            animation: drift-nw-se var(--dur-ambient) infinite alternate ease-in-out;
+            top: -10%;
+            left: -10%;
+        }
+
+        .orb--purple {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(191,90,242,0.8) 0%, rgba(191,90,242,0) 70%);
+            animation: drift-se-nw calc(var(--dur-ambient) * 1.6) infinite alternate ease-in-out;
+            animation-delay: 7s;
+            bottom: -20%;
+            right: -10%;
+        }
+
+        .orb--teal {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(50,173,230,0.8) 0%, rgba(50,173,230,0) 70%);
+            animation: drift-circular calc(var(--dur-ambient) * 2) infinite linear;
+            animation-delay: 13s;
+            top: 40%;
+            left: 30%;
+        }
+
+        .hero__glass {
+            max-width: 800px;
+            width: 100%;
+            padding: clamp(40px, 8vw, 80px);
+            text-align: center;
+            animation: hero-entrance 700ms var(--ease-spring) forwards;
+            will-change: transform, opacity;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-size: var(--text-caption);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        .hero__title {
+            font-size: var(--text-display);
+            font-weight: 700;
+            line-height: 1.0;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.04em;
+        }
+
+        .hero__subtitle {
+            font-size: var(--text-hero-sub);
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero__desc {
+            font-size: var(--text-body);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform var(--dur-fast) var(--ease-ios), filter var(--dur-fast);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn--primary {
+            background: var(--accent-primary);
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .btn--primary:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn--glass {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn--glass:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* --- Layout Sections --- */
+        .section {
+            padding: clamp(60px, 10vw, 120px) 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .eyebrow {
+            font-size: var(--text-caption);
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: var(--text-section);
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        /* --- Experience Cards --- */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .exp-card {
+            padding: 32px;
+            position: relative;
+            transition: transform var(--dur-base) var(--ease-ios), border-color var(--dur-base);
+        }
+
+        .exp-card--active {
+            border-left: 4px solid var(--accent-primary);
+            background: rgba(10, 132, 255, 0.03);
+        }
+
+        .exp-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glow);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .company-info {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .company-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-subtle);
+            flex-shrink: 0;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: var(--text-card-title);
+            margin: 0;
+        }
+
+        .role-title {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+
+        .date-location {
+            text-align: right;
+            font-size: var(--text-caption);
+            color: var(--text-tertiary);
+            line-height: 1.4;
+        }
+
+        .exp-bullets {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: var(--text-body);
+        }
+
+        .exp-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .tag {
+            background: var(--accent-soft);
+            color: var(--accent-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        /* --- Project Cards --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--dur-base) var(--ease-ios), box-shadow var(--dur-base), border-color var(--dur-base);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            border-radius: 20px;
+            background: var(--project-gradient, linear-gradient(90deg, #0A84FF, #BF5AF2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.3;
+            transition: opacity var(--dur-base) var(--ease-ios);
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            border-color: transparent;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: var(--text-card-title);
+            margin: 0;
+        }
+
+        .project-date {
+            font-size: var(--text-caption);
+            color: var(--text-tertiary);
+        }
+
+        .project-category {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0 0 24px 0;
+            font-weight: 400;
+        }
+
+        .project-desc {
+            font-size: var(--text-body);
+            color: var(--text-secondary);
+            margin: 0 0 32px 0;
+            flex-grow: 1;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .github-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: var(--text-caption);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: background var(--dur-fast);
+        }
+
+        .github-link:hover {
+            background: var(--bg-frosted);
+        }
+
+        /* --- Skills Grid --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .category-title {
+            font-size: var(--text-caption);
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-pill {
+            padding: 6px 14px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: border-color var(--dur-base), background var(--dur-base);
+            cursor: default;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-frosted);
+        }
+
+        /* --- Education --- */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .edu-card {
+            padding: 32px;
+            text-align: center;
+        }
+
+        .edu-name {
+            font-weight: 700;
+            font-size: var(--text-card-title);
+            margin-bottom: 8px;
+        }
+
+        .edu-detail {
+            color: var(--text-secondary);
+            font-size: var(--text-body);
+            margin-bottom: 4px;
+        }
+
+        .edu-year {
+            color: var(--text-tertiary);
+            font-size: var(--text-caption);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: var(--space-3xl) 24px;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer__title {
+            font-size: var(--text-section);
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        .contact-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .contact-btn {
+            padding: 12px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background var(--dur-fast);
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .footer__credit {
+            color: var(--text-tertiary);
+            font-size: var(--text-caption);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Animations --- */
+        @keyframes drift-nw-se {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10vw, 15vh); }
+        }
+
+        @keyframes drift-se-nw {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-15vw, -10vh); }
+        }
+
+        @keyframes drift-circular {
+            0% { transform: rotate(0deg) translate(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translate(100px) rotate(-360deg); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(48, 209, 88, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0); }
+        }
+
+        @keyframes hero-entrance {
+            from { opacity: 0; transform: scale(0.96) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity var(--dur-slow) var(--ease-ios), transform var(--dur-slow) var(--ease-ios);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Menu --- */
+        @media (max-width: 768px) {
+            .nav__links {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav__overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                transform: translateY(-100%);
+                transition: transform var(--dur-base) var(--ease-ios);
+            }
+            .nav__overlay.active {
+                transform: translateY(0);
+            }
+            .nav__overlay .nav__link {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero__title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Accessibility & Motion */
+        :focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            .orb {
+                transform: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="nav-bar">
-        <div class="logo">Anand_Achanta</div>
-        <nav class="nav-links">
-            <a href="#home" class="opt">Home</a>
-            <a href="#skills" class="opt">Skills</a>
-            <a href="#projects" class="opt">Projects</a>
-            <a href="#contact" class="opt">Contact</a>
-        </nav>
-        <a href="#" class="menu-toggle">Menu</a>
-        <div class="dropdown-menu">
-            <a href="#home" class="opt">Home</a>
-            <a href="#skills" class="opt">Skills</a>
-            <a href="#projects" class="opt">Projects</a>
-            <a href="#contact" class="opt">Contact</a>
-        </div>
-    </header> 
 
-    <section id="home" class="section">
-        <div class="terminal">
-            <pre><code id="home-terminal">ubuntu@anand:~$ cd home<br>ubuntu@anand:~$ python3 home.py<br></code></pre>
+    <nav class="nav" id="main-nav">
+        <a href="#" class="nav__logo">Anand</a>
+        <div class="nav__links">
+            <a href="#experience" class="nav__link">Work</a>
+            <a href="#projects" class="nav__link">Projects</a>
+            <a href="#skills" class="nav__link">Skills</a>
+            <a href="#contact" class="nav__link">Contact</a>
         </div>
-        <div class="section-content hidden">
-            <div class="home-content">
-                <div class="left">
-                    <pre class="ascii-art">
-|.-----.|
-||x . x||
-||_.-._||
-`--)-(--`
-__ [=== o]___
-|:::::::::::|\
-`-=========-`()
-                    </pre>
-                    <div class="text-image">
-                        <span class="terminal-text">WELCOME TO MY PORTFOLIO</span>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
+    </nav>
+
+    <div class="nav__overlay" id="nav-overlay">
+        <a href="#experience" class="nav__link">Work</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#contact" class="nav__link">Contact</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero__ambient">
+            <div class="orb orb--blue"></div>
+            <div class="orb orb--purple"></div>
+            <div class="orb orb--teal"></div>
+        </div>
+
+        <div class="hero__glass glass-material">
+            <div class="live-badge">
+                <span class="pulse-dot"></span>
+                Open to Opportunities
+            </div>
+            <h1 class="hero__title">Venkata Anand Achanta</h1>
+            <p class="hero__subtitle">Data Engineer & Full-Stack Developer</p>
+            <p class="hero__desc">
+                Building scalable data systems and intuitive interfaces. <br>
+                Final year CSE @ IIIT Guwahati.
+            </p>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn--primary">View My Work ↓</a>
+                <a href="https://drive.google.com/file/d/1RwltIxLkELFDtXkf8svXWx_lncADSh2e/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--glass">Download Resume ↑</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="section-header">
+            <span class="eyebrow">Experience</span>
+            <h2 class="section-title">Where I've Worked</h2>
+        </div>
+        <div class="experience-list">
+            <!-- MAQ Software -->
+            <div class="exp-card glass-material exp-card--active reveal">
+                <div class="exp-header">
+                    <div class="company-info">
+                        <img src="assets/Maqsoftware_Logo.webp" alt="MAQ Software Logo" class="company-logo">
+                        <div>
+                            <h3 class="company-name">MAQ Software</h3>
+                            <p class="role-title">Intern</p>
+                        </div>
+                    </div>
+                    <div class="date-location">
+                        Jan 2026 – Present<br>Noida, India
                     </div>
                 </div>
-                <div class="right">
-                    <div class="personal-info">
-                        <h1>Anand Achanta</h1>
-                        <p>Passionate about Programming</p>
-                        <p>Currently pusuing B.Tech. in Computer Science Enginnering</p>
-                        <p>Indian Institute of Information Technology, Guwahati</p>
-                        <!-- Add other personal info here -->
+                <ul class="exp-bullets">
+                    <li>Built 2 production-grade reports end-to-end — from raw data ingestion through Medallion Architecture (Bronze → Silver → Gold layers) to polished Power BI frontend.</li>
+                    <li>Converted legacy Spark SQL to PySpark, improving pipeline flexibility and scalability via dataframe-based transformations.</li>
+                    <li>Engineered backend architecture for complex Power BI reporting; optimized core semantic model for query performance and load times.</li>
+                    <li>Redesigned UI/UX for major client-facing Power BI reports: improved navigation, visual hierarchy, and accessibility.</li>
+                </ul>
+                <div class="exp-tags">
+                    <span class="tag">Azure</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">PySpark</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+
+            <!-- GirlScript -->
+            <div class="exp-card glass-material reveal">
+                <div class="exp-header">
+                    <div class="company-info">
+                        <img src="assets/gssoc_logo.jpg" alt="GSSOC Logo" class="company-logo">
+                        <div>
+                            <h3 class="company-name">GirlScript Summer of Code</h3>
+                            <p class="role-title">Contributor</p>
+                        </div>
                     </div>
+                    <div class="date-location">
+                        May 2024 – Aug 2024<br>Remote
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Resolved 10+ issues with cross-disciplinary teams, maintaining high code quality standards.</li>
+                    <li>Designed and implemented 2 key features for a large-scale open-source project under tight timelines.</li>
+                    <li>Drove improvements across 30+ commits via active code reviews and technical discussions.</li>
+                </ul>
+                <div class="exp-tags">
+                    <span class="tag">Open Source</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">Collaboration</span>
                 </div>
             </div>
         </div>
     </section>
-    
-    
-    <section id="skills" class="section">
-        <div class="terminal">
-            <pre><code id="skills-terminal">ubuntu@anand:~$ cd skills<br>ubuntu@anand:~$ sudo apt update skills<br></code></pre>
-        </div>
-        <div class="section-content hidden">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <i class="fab fa-python skill-icon"></i>
-                    <p>Python</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-java skill-icon"></i>
-                    <p>Java</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-html5 skill-icon"></i>
-                    <p>HTML</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt skill-icon"></i>
-                    <p>CSS</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js skill-icon"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-flask skill-icon"></i>
-                    <p>Flask</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-java skill-icon"></i>
-                    <p>Spring</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database skill-icon"></i>
-                    <p>MySQL</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database skill-icon"></i>
-                    <p>PostgreSQL</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database skill-icon"></i>
-                    <p>SQLite</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cloud skill-icon"></i>
-                    <p>AWS</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-git skill-icon"></i>
-                    <p>Git</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-github skill-icon"></i>
-                    <p>Github</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <section id="projects" class="section">
-        <div class="terminal">
-            <pre><code id="projects-terminal">ubuntu@anand:~$ cd projects<br>ubuntu@anand:~$ python3 projects.py<br></code></pre>
+        <div class="section-header">
+            <span class="eyebrow">Projects</span>
+            <h2 class="section-title">What I've Built</h2>
         </div>
-        <div class="section-content hidden">
-            <h2>Projects</h2>
-            <div class="project-item">
-                <h3>Vlog-Blog</h3>
-                <p><strong>Tools:</strong> Python, Flask, Bootstrap, PostgreSQL</p>
-                <p>Developed a real-time blog platform with secure authentication and efficient content management.</p>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card glass-material reveal" style="--project-gradient: linear-gradient(90deg, #30D158, #0A84FF);">
+                <div class="project-header">
+                    <h3 class="project-name">AshaAssist</h3>
+                    <span class="project-date">Nov 2025 →</span>
+                </div>
+                <p class="project-category">Healthcare Data Platform</p>
+                <p class="project-desc">
+                    Built robust backend services for efficient patient data management using Spring Boot and dual-database architecture for optimized retrieval.
+                </p>
+                <div class="project-footer">
+                    <div class="project-links">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <a href="#" class="github-link">→ GitHub</a>
+                </div>
             </div>
-            <div class="project-item">
-                <h3>Hover On</h3>
-                <p><strong>Tools:</strong> Spring, HTML, CSS, JavaScript, MySQL</p>
-                <p>Created a music management system for playlist creation and track navigation.</p>
-            </div>
-            <div class="project-item">
-                <h3>Stock News Alert System</h3>
-                <p><strong>Tools:</strong> Python, APIs</p>
-                <p>Engineered an alert system for real-time stock price changes with news updates.</p>
-            </div>
-        </div>
-    </section>
-    
-    
-    <section id="contact" class="section">
-        <div class="terminal">
-            <pre><code id="contact-terminal">ubuntu@anand:~$ cd contact<br>ubuntu@anand:~$ python3 contact.py<br></code></pre>
-        </div>
-        <div class="section-content hidden">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:anandachanta19@gmail.com">Feel free to drop a mail!</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/anandachanta19">Let's Connect</a></p>
-            <p>Github: <a href="https://github.com/anandachanta19">My projects are available here</a></p>
-        </div>
-    </section>
-    
 
-    <footer class="footer">
-        <p>&copy; 2025 Anand Achanta. All rights reserved.</p>
+            <!-- Project 2 -->
+            <div class="project-card glass-material reveal" style="--project-gradient: linear-gradient(90deg, #FF375F, #BF5AF2);">
+                <div class="project-header">
+                    <h3 class="project-name">Aura</h3>
+                    <span class="project-date">March 2025</span>
+                </div>
+                <p class="project-category">High-Performance Music Engine</p>
+                <p class="project-desc">
+                    Engineered an ML-based recommendation algorithm and emotion-based playback system utilizing OpenCV and DeepFace for 90% accuracy.
+                </p>
+                <div class="project-footer">
+                    <div class="project-links">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">React</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                    <a href="#" class="github-link">→ GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="section-header">
+            <span class="eyebrow">Technical Arsenal</span>
+            <h2 class="section-title">What I Work With</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <span class="category-title">Languages</span>
+                <div class="skill-pills">
+                    <div class="skill-pill">Java</div>
+                    <div class="skill-pill">Python</div>
+                    <div class="skill-pill">C</div>
+                    <div class="skill-pill">Dart</div>
+                    <div class="skill-pill">SQL</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <span class="category-title">Frameworks & Tools</span>
+                <div class="skill-pills">
+                    <div class="skill-pill">Spring Boot</div>
+                    <div class="skill-pill">React</div>
+                    <div class="skill-pill">Node.js</div>
+                    <div class="skill-pill">REST APIs</div>
+                    <div class="skill-pill">AWS</div>
+                    <div class="skill-pill">Azure</div>
+                    <div class="skill-pill">Fabric</div>
+                    <div class="skill-pill">Docker</div>
+                    <div class="skill-pill">Power BI</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <span class="category-title">Databases</span>
+                <div class="skill-pills">
+                    <div class="skill-pill">PostgreSQL</div>
+                    <div class="skill-pill">MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="section-header">
+            <span class="eyebrow">Education</span>
+            <h2 class="section-title">Academic Background</h2>
+        </div>
+        <div class="edu-grid">
+            <div class="edu-card glass-material reveal">
+                <div class="edu-name">IIIT Guwahati</div>
+                <div class="edu-detail">B.Tech in Computer Science Engineering</div>
+                <div class="edu-detail">GPA: 7.41 / 10</div>
+                <div class="edu-year">2022 – 2026</div>
+            </div>
+            <div class="edu-card glass-material reveal">
+                <div class="edu-name">Sri Chaitanya College</div>
+                <div class="edu-detail">Pre-University</div>
+                <div class="edu-detail">Result: 95.3%</div>
+                <div class="edu-year">2020 – 2022</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <h2 class="footer__title">Let's build something.</h2>
+        <div class="contact-group">
+            <a href="mailto:anandachanta19@gmail.com" class="contact-btn">Email</a>
+            <a href="https://linkedin.com/in/anandachanta19" class="contact-btn">LinkedIn</a>
+            <a href="https://github.com/anandachanta19" class="contact-btn">GitHub</a>
+        </div>
+        <div class="footer__credit">
+            Designed & built by Venkata Anand Achanta &middot; 2025
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navOverlay = document.getElementById('nav-overlay');
+            const navLinks = document.querySelectorAll('.nav__link');
+
+            // 1. Reduced Motion Check
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // 2. Navbar Scroll Effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // 3. Mobile Menu Toggle
+            menuToggle.addEventListener('click', () => {
+                navOverlay.classList.toggle('active');
+                menuToggle.textContent = navOverlay.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // 4. Smooth Scroll & Active Link Highlighting
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    navOverlay.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+
+            // 5. IntersectionObserver for Scroll Reveal
+            if (!prefersReducedMotion) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            } else {
+                // Just show everything if motion is reduced
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+            }
+
+            // 6. Dynamic Active Nav Link
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
